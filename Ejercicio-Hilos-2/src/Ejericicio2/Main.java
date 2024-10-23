@@ -43,7 +43,7 @@ public class Main {
         Thread carroSurSale = new Thread(()->{
             try {
                 while(true) {
-                    carro.entrarPuenteS();
+                    carro.salirPuenteS();
                     Thread.sleep(1000);
                 }
             } catch (InterruptedException e) {

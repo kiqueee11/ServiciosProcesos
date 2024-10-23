@@ -3,49 +3,56 @@ package Ejericicio2;
 import java.util.LinkedList;
 
 public class Carro {
+    String cocheN="Carro del norte";
+    String cocheS="Carro del sur";
     LinkedList<String> puente = new LinkedList<>();
-    String coche;
+
     void entrarPuenteS() throws InterruptedException {
         synchronized (this){
-            while(puente.contains(coche)){
+            while(puente.contains(cocheN)){
                 wait();
             }
-            coche="Carro del sur";
-            this.puente.add(coche);
-            System.out.println("El "+coche+" entra en el puente");
+            while(puente.contains(cocheS)){
+                wait();
+            }
+
+            this.puente.add(cocheS);
+            System.out.println("El "+cocheS+" entra en el puente");
             notify();
         }
     }
     void salirPuenteS() throws InterruptedException {
         synchronized (this){
-            while(!puente.contains(coche)){
+            while(!puente.contains(cocheS)){
                 wait();
             }
-            coche="Carro del sur";
-            puente.remove(coche);
-            System.out.println("El "+coche+" a salido del puente");
+
+            puente.remove(cocheS);
+            System.out.println("El "+cocheS+" a salido del puente");
             notify();
         }
     }
     void entrarPuenteN() throws InterruptedException {
         synchronized (this){
-            while(puente.contains(coche)){
+            while(puente.contains(cocheN)){
                 wait();
             }
-            coche="Carro del norte";
-            puente.add(coche);
-            System.out.println("El "+coche+" entra en el puente");
+            while(puente.contains(cocheS)){
+                wait();
+            }
+            this.puente.add(cocheN);
+            System.out.println("El "+cocheN+" entra en el puente");
             notify();
         }
     }
     void salirPuenteN() throws InterruptedException {
         synchronized (this){
-            while(!puente.contains(coche)){
+            while(!puente.contains(cocheN)){
                 wait();
             }
-            coche="Carro del norte";
-            puente.remove(coche);
-            System.out.println("El "+coche+" a salido del puente");
+
+            puente.remove(cocheN);
+            System.out.println("El "+cocheN+" a salido del puente");
             notify();
         }
     }
