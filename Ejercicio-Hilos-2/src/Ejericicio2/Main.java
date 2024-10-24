@@ -10,6 +10,7 @@ public class Main {
         Thread carroNorteEntra = new Thread(()->{
             try {
                 while(true) {
+
                     carro.entrarPuenteN();
                     Thread.sleep(1000);
                 }
