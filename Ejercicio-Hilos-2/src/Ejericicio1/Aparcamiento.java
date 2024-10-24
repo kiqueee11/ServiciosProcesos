@@ -16,7 +16,6 @@ public class Aparcamiento {
             }
             this.aparcados.add(coche);
             System.out.println("El coche: "+coche+" ha sido aparcado");
-            coche++;
             notify();
         }
     }
