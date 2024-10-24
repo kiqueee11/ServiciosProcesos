@@ -38,7 +38,7 @@ public class Carro {
             }
 
             puente.remove(cocheS);
-            System.out.println("El "+cocheS+" a salido del puente");
+            System.out.println("El "+cocheS+" ha salido del puente");
             accesoNorte = true;
             notify();
         }
@@ -74,7 +74,7 @@ public class Carro {
             }
 
             puente.remove(cocheN);
-            System.out.println("El "+cocheN+" a salido del puente");
+            System.out.println("El "+cocheN+" ha salido del puente");
             accesoSur=true;
             notify();
         }
